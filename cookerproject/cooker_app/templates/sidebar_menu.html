@@ -1,0 +1,15 @@
+{% load static %}
+
+
+<nav class="navbar navbar-default navbar-fixed-right" id="sidebar-wraper" role="navigation">
+        <ul class="nav sidebar-nav">
+        <li class="nav-item">
+            {% load searchtag %}
+            {% search_menu %}
+        </li>
+        <li class="nav-item">Категории</li>
+        {% for i in categoryes %}
+            <li><a href="/category/{{ i.slug }}">{{ i.name }}</a></li><br>        
+        {% endfor %}
+        </ul>
+</nav>

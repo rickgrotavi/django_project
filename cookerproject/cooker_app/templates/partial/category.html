@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block body %}
+<h3>Все категории: </h3>
+    <ul>
+        {% for category_list in lists %}
+                 <li><a href="/category/{{ category_list.slug }}">{{ category_list.name }}</a></li><br>        
+        {% endfor %}
+    </ul>        
+{% endblock body %}

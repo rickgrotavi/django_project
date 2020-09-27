@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block head %}
+<title>{{ post.title }}</title>
+<meta name="description" content="{{ post.description }}"/>
+<meta name="keywords" content="{{ post.keywords }}"/>
+{% endblock %}
+ 
+{% block body %}
+    {% if query %}
+        <h1>Статьи содержащие: "{{ query }}"</h1>
+        <h3>
+            {% with results.count as total_results %}
+                Найдено {{total_results}} результатов {{ total_results|pluralize }}
+            {% endwith %}
+        </h3>
+        {% for post in results %}
+            <h4><a href="{{post.get_absolute_url }}"> {{ post.title }}</a></h4>
+            {% autoescape off %}
+                {{ post.content|truncatewords:40}}
+            {% endautoescape %}
+          {% empty %}
+            <p>Ничего не найдено</p>
+        {% endfor %}
+            <p><a href="{% url 'cooker_app:post_search' %}"> Искать снова </a> </p>
+    {% else %}
+    <h1>Поиск статей</h1>
+    <form action="" method="get">        
+        {{ form.as_p }}
+        <input type="submit" value="Поиск">
+    </form>
+    {% endif %}
+{% endblock %}
