@@ -85,9 +85,9 @@ WSGI_APPLICATION = 'cookerproject.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'cookerdb',
-        'USER': 'cookeruser',
-        'PASSWORD': 'q3dm17',
+        'NAME': '',
+        'USER': '',
+        'PASSWORD': '',
         'HOST': 'localhost',
         'PORT': '',
     }
